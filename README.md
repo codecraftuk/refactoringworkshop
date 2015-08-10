@@ -13,11 +13,12 @@
 
 ## Commands
 
-| Command                             | Description                                                                                                             |
-|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| `set ticket price`                  | Sets the prices of a standard ticket                                                                                      |
-| `print summary`                     | Displays the Total numbers of each tickets type sold, the total ticket revenue for each tick type and the total revenue |
-| `add (standard/student) {name} {age}` | Adds a ticket for a standard or student. Requires a name and an age                                                       |
+| Command                               | Description                                                                                                             |
+|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `set ticket price`                    | Sets the prices of a standard ticket                                                                                    |
+| `add (standard/student) {name} {age}` | Adds a ticket for a standard or student. Requires a name and an age                                                     |
+| `print summary`                       | Displays the Total numbers of each tickets type sold, the total ticket revenue for each tick type and the total revenue |
+| `exit`                                | Exits the console app                                                                                                   |
 
 
 ## Other Info
