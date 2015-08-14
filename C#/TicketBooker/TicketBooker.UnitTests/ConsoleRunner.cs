@@ -17,7 +17,7 @@ namespace TicketBooker.UnitTests
             var output = new StringBuilder();
             var stringWriter = new StringWriter(output);
             Console.SetOut(stringWriter);            
-            Program.Main(consoleInput.ToArray());    
+            Program.Main(null);
             return output.ToString();
         }
     }
