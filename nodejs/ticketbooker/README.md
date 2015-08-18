@@ -10,7 +10,7 @@ $ npm install
 $ node lib/index.js
 ```
 
-## Run Test
+## Run Tests
 
 ```sh
 $ npm test
