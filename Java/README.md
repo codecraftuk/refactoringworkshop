@@ -4,6 +4,6 @@ Just put the Gradle bin directory on your path.
 
 Run tests with: gradle test
 
-Run the application:
-  on linux: ./run.sh
-  on windows: run.bat
+To run the  application:
+  - on linux: ./run.sh
+  - on windows: run.bat
