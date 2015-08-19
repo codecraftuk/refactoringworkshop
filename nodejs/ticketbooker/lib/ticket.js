@@ -1,16 +1,16 @@
-var method = Ticket.prototype;
+'use strict';
 
 function Ticket(age, name, customerTypes) {
-    this.Age = age;
-    this.Name = name;
-    this.CustomerType = customerTypes;
+  this.Age = age;
+  this.Name = name;
+  this.CustomerType = customerTypes;
 }
 
 var customerTypes = {
-    Standard : "Standard",
-    Student : "Student"
-}
+  Standard: 'Standard',
+  Student: 'Student'
+};
 
-Ticket.CustomerTypes = customerTypes
+Ticket.CustomerTypes = customerTypes;
 
-module.exports = Ticket; 
+module.exports = Ticket;
