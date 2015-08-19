@@ -23,9 +23,17 @@ public class Tickets {
         Double total = standardTicketTotal + studentTicketTotal;
         String reportOutput = "** SALES REPORT **" + newLine + newLine;
         reportOutput += "Number of Tickets Sold" + newLine;
-        long standardTicketCount = ticketList.stream().filter(t -> t.CustomerType == Ticket.CustomerTypes.Standard).count();
+        long standardTicketCount = 0;
+        for (Ticket t : ticketList) {
+            if(t.CustomerType == Ticket.CustomerTypes.Standard)
+                standardTicketCount++;
+        }
         reportOutput += "  Standard: " + standardTicketCount + newLine;
-        long studentTicketCount = ticketList.stream().filter(t -> t.CustomerType == Ticket.CustomerTypes.Student).count();
+        long studentTicketCount = 0;
+        for (Ticket t : ticketList) {
+            if(t.CustomerType == Ticket.CustomerTypes.Student)
+                studentTicketCount++;
+        }
         reportOutput += "  Student: " + studentTicketCount + newLine;
         reportOutput += newLine;
         reportOutput += "Income" + newLine;
