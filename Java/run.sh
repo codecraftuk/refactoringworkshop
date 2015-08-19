@@ -5,4 +5,4 @@ gradle clean jar
 
 echo ""
 echo " * Running app - start typing!"
-java -jar build/libs/Java2.jar
+java -jar build/libs/ticketbooker.jar
