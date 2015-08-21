@@ -6,37 +6,52 @@ var Ticket = require('./ticket.js');
 
 function Tickets() {
   this.ticketPrice = 0;
-  this.ticketArray = new Array();
+  this.ticketArray = [];
 }
 
 method.getReport = function () {
-    var standardTicketTotal = 0.0;
-    var studentTicketTotal = 0.0;
-    /*for (var tickets : ticketList) {
-        switch (tickets.CustomerType) {
-            case Standard:
-                standardTicketTotal += ticketPrice;
-                break;
-            case Student:
-                studentTicketTotal += ticketPrice * 0.6;
-                break;
-        }
-    }
-    Double total = standardTicketTotal + studentTicketTotal;*/
+  var standardTicketTotal = 0.0;
+  var studentTicketTotal = 0.0;
+  for (var i = 0; i < this.ticketArray.length; i++) {
+    var t1 = this.ticketArray[i];
+    switch (t1.CustomerType) {
+      case Ticket.CustomerTypes.Standard:
+        standardTicketTotal += this.ticketPrice;
+        break;
+      case Ticket.CustomerTypes.Student:
+        studentTicketTotal += this.ticketPrice * 0.6;
+        break;
+      }
+  }
+  var total = standardTicketTotal + studentTicketTotal;
 
-  var reportOutput = "** SALES REPORT **" + newLine + newLine;
-  reportOutput += "Number of Tickets Sold";
+  var reportOutput = '** SALES REPORT **' + newLine + newLine;
+  reportOutput += 'Number of Tickets Sold' + newLine;
   var standardTicketCount = 0;
-  /*for (t in ticketArray) {
-    if(t.CustomerType == Ticket.CustomerTypes.Standard)
+  for (var i = 0; i < this.ticketArray.length; i++) {
+    var t2 = this.ticketArray[i];
+    if (t2.CustomerType === Ticket.CustomerTypes.Standard) {
       standardTicketCount++;
-    }*/
-  reportOutput += "  Standard: " + standardTicketCount + newLine;
+    }
+  }
+  reportOutput += '  Standard: ' + standardTicketCount + newLine;
+  var studentTicketCount = 0;
+  for (var i = 0; i < this.ticketArray.length; i++) {
+    var t3 = this.ticketArray[i];
+    if (t3.CustomerType === Ticket.CustomerTypes.Student) {
+      studentTicketCount++;
+    }
+  }
+  reportOutput += '  Student: ' + studentTicketCount + newLine + newLine;
+  reportOutput += "Income" + newLine;
+  reportOutput += "  Standard Total = £" + standardTicketTotal + newLine;
+  reportOutput += "  Student Total = £" + studentTicketTotal + newLine;
+  reportOutput += "  Total = £" + total;
   return reportOutput;
 };
 
-module.add = function(ticket) {
-  ticketList.push(ticket);
+method.add = function (ticket) {
+  this.ticketArray.push(ticket);
 };
 
 module.exports = Tickets;

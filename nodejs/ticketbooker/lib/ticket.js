@@ -1,9 +1,9 @@
 'use strict';
 
-function Ticket(age, name, customerTypes) {
+function Ticket(age, name, customerType) {
   this.Age = age;
   this.Name = name;
-  this.CustomerType = customerTypes;
+  this.CustomerType = customerType;
 }
 
 var customerTypes = {

@@ -2,7 +2,7 @@
 
 var method = ConsoleApp.prototype;
 
-//var Ticket = require('./ticket.js');
+var Ticket = require('./ticket.js');
 var Tickets = require('./tickets.js');
 var readline = require('readline');
 var tickets = new Tickets();
@@ -28,33 +28,24 @@ method.start = function () {
       console.log(tickets.getReport());
     } else if (consoleInput.indexOf('set ticket price') > -1) {
       var enteredTextArray = consoleInput.split(' ');
-      tickets.ticketPrice = enteredTextArray[3];
-    } else if(consoleInput.indexOf('exit') > -1) {
+      tickets.ticketPrice = parseFloat(enteredTextArray[3]);
+    } else if (consoleInput.indexOf('add standard') > -1) {
+      var enteredTextArray1 = consoleInput.split(' ');
+      var name = enteredTextArray1[2];
+      var age = enteredTextArray1[3];
+      var ticket1 = new Ticket(age, name, Ticket.CustomerTypes.Standard);
+      tickets.add(ticket1);
+    } else if (consoleInput.indexOf('add student') > -1) {
+      var enteredTextArray2 = consoleInput.split(' ');
+      var name2 = enteredTextArray2[2];
+      var age2 = enteredTextArray2[3];
+      var ticket2 = new Ticket(age2, name2, Ticket.CustomerTypes.Student);
+      tickets.add(ticket2);
+    } else if (consoleInput.indexOf('exit') > -1) {
+      console.log('Exiting...');
+    } else {
+      console.log('Unknown Input: ' + consoleInput);
     }
-    else {
-      console.log("Unknown Input: " + consoleInput);
-    }
-    /*else if (consoleInput.Contains("add standard"))
-    {
-        var enteredTextArray = consoleInput.Split(' ');
-        Tickets.Add(new Ticket
-        {
-            CustomerType = Ticket.CustomerTypes.Standard,
-            Name = enteredTextArray[2],
-            Age = Convert.ToInt32(enteredTextArray[3])
-        });
-    }
-    else if (consoleInput.Contains("add student"))
-    {
-        var enteredTextArray = consoleInput.Split(' ');
-        Tickets.Add(new Ticket
-        {
-            CustomerType = Ticket.CustomerTypes.Student,
-            Name = enteredTextArray[2],
-            Age = Convert.ToInt32(enteredTextArray[3])
-        });
-    }*/
-
   });
 };
 
