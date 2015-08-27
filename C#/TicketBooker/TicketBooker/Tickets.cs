@@ -29,8 +29,16 @@ namespace TicketBooker
             var total = standardTicketTotal + studentTicketTotal;
             var reportOutput = "** SALES REPORT **" + Environment.NewLine + Environment.NewLine;
             reportOutput += "Number of Tickets Sold" + Environment.NewLine;
-            reportOutput += "  Standard: " + TicketList.Count(t => t.CustomerType == Ticket.CustomerTypes.Standard) + Environment.NewLine;
-            reportOutput += "  Student: " + TicketList.Count(t => t.CustomerType == Ticket.CustomerTypes.Student) + Environment.NewLine;
+            var standardCount = 0;
+            foreach (var ticket in TicketList)
+                if (ticket.CustomerType == Ticket.CustomerTypes.Standard)
+                    standardCount++;
+            reportOutput += "  Standard: " + standardCount + Environment.NewLine;
+            var studentCount = 0;
+            foreach (var ticket in TicketList)
+                if (ticket.CustomerType == Ticket.CustomerTypes.Student)
+                    studentCount++;
+            reportOutput += "  Student: " + studentCount + Environment.NewLine;
             reportOutput += Environment.NewLine;
             reportOutput += "Income" + Environment.NewLine;
             reportOutput += "  Standard Total = £" + standardTicketTotal + Environment.NewLine;
